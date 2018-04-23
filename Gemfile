@@ -56,3 +56,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # my gems
 gem 'materialize-sass'
 gem 'bcrypt',         '3.1.11'
+gem 'material_icons'
+gem 'jquery-rails'

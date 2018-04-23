@@ -1,0 +1,27 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col s12 m8 l6 offset-m2 offset-l3'>
+      <div class='card' style='margin-top: 2rem'>
+        <div class='card-content'>
+          <div class='card-title center-align'>New task</div>
+          <%= form_for(@task) do |f| %>
+            <%= render 'shared/error_messages' %>
+            <div class='input-field'>
+              <%= f.label :title %>
+              <%= f.text_field :title, class: 'form-control' %>
+            </div>
+            <div class='input-field'>
+              <%= f.label :description %>
+              <%= f.text_field :description, class: 'form-control' %>
+            </div>
+            <%= f.label :due_at, "Due on" %>
+            <%= f.date_field :due_at, class: 'form-control' %>
+            <div class='center-align'>
+              <%= f.submit "Create task", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,22 +6,27 @@
           <div class='card-title center-align'>Sign-up!</div>
           <%= form_for(@user) do |f| %>
             <%= render 'shared/error_messages' %>
-
-            <%= f.label :name %>
-            <%= f.text_field :name, class: 'form-control' %>
-
-            <%= f.label :username %>
-            <%= f.text_field :username, class: 'form-control' %>
-
-            <%= f.label :password %>
-            <%= f.password_field :password, class: 'form-control' %>
-
-            <%= f.label :password_confirmation, "Confirmation" %>
-            <%= f.password_field :password_confirmation, class: 'form-control' %>
+            <div class='input-field'>
+              <%= f.label :name %>
+              <%= f.text_field :name, class: 'form-control' %>
+            </div>
+            <div class='input-field'>
+              <%= f.label :username %>
+              <%= f.text_field :username, class: 'form-control' %>
+            </div>
+            <div class='input-field'>
+              <%= f.label :password %>
+              <%= f.password_field :password, class: 'form-control' %>
+            </div>
+            <div class='input-field'>
+              <%= f.label :password_confirmation, "Confirmation" %>
+              <%= f.password_field :password_confirmation, class: 'form-control' %>
+            </div>
             <div class='center-align'>
               <%= f.submit "Create my account", class: "btn btn-primary" %>
             </div>
           <% end %>
+          <p class='center-align' style='margin-top:0.5rem'>Existing user? <%= link_to "Login", login_path %></p>
         </div>
       </div>
     </div>

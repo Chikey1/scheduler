@@ -4,7 +4,9 @@ class ApplicationController < ActionController::Base
 
 private
   def require_login
-    #redirect_to new_session_path unless logged_in?
+    if !logged_in?
+      redirect_to login_path
+    end
   end
 
   def logged_in?
@@ -15,8 +17,7 @@ private
     @current_user
   end
 
-  def sign_in(user)
-    @current_user = user
+  def log_in(user)
     session[:user_id] = user.id
   end
 end

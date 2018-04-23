@@ -1,0 +1,70 @@
+<div class='col m12 l4'>
+  <div class='card'>
+    <div class='card-content'>
+      <div class="row">
+        <div class="col l12">
+          <ul class="tabs">
+            <li class="tab col s6"><a href="#tasks-tab" class='active'>Tasks</a></li>
+            <li class="tab col s6"><a href="#activities-tab">Activities</a></li>
+          </ul>
+        </div>
+        <div id="tasks-tab" class="col l12">
+          <table class='highlight'>
+            <thead>
+              <tr>
+                <th>
+                  Task
+                </th>
+                <th>Due</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% if current_user.tasks.empty? %>
+                <tr>
+                  <td>No tasks!</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              <% else %>
+                <% current_user.tasks.order(due_at: :asc).each do |task| %>
+                  <tr>
+                    <td><%= task.title %></td>
+                    <% if task.due_at < Time.now %>
+                      <td><%= time_ago_in_words task.due_at %> ago</td>
+                    <% else %>
+                      <td>in <%= distance_of_time_in_words(Time.now, task.due_at) %></td>
+                    <% end %>
+                    <td>
+                      <%= link_to task_path(task), method: :delete do %>
+                        <i class="material-icons">cancel</i>
+                      <% end %>
+                    </td>
+                  </tr>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+          <br />
+          <%= link_to '+ Task', new_task_path, class:'btn' %>
+        </div>
+        <div id="activities-tab" class="col l12">
+          <table class='highlight'>
+            <thead>
+              <tr>
+                <th>Task</th>
+                <th>Due</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Exam</td>
+                <td>in 2 days</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

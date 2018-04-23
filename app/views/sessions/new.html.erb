@@ -1,0 +1,26 @@
+<% provide(:title, "Log in") %>
+<div class='container'>
+  <div class='row'>
+    <div class='col s12 m8 l6 offset-m2 offset-l3'>
+      <div class='card' style='margin-top: 2rem'>
+        <div class='card-content'>
+          <div class='card-title center-align'>Log in</div>
+          <%= form_for(:session, url: login_path) do |f| %>
+            <div class='input-field'>
+              <%= f.label :username %>
+              <%= f.text_field :username, class: 'form-control' %>
+            <div class='input-field'>
+            <div class='input-field'>
+              <%= f.label :password %>
+              <%= f.password_field :password, class: 'form-control' %>
+            <div class='input-field'>
+            <div class='center-align'>
+              <%= f.submit "Log in", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+          <p class='center-align' style='margin-top:0.5rem'>New user? <%= link_to "Sign up now!", signup_path %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
