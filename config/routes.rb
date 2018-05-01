@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'calendars#index'
   resources :users,          only: [:new, :create]
   resources :tasks,          only: [:new, :create, :show, :destroy]
+  resources :activities,     only: [:new, :create, :show, :destroy]
+  resources :events,          only: [:new, :create, :show, :destroy]
   get   '/profile',  to: 'users#index'
   get    '/signup',  to: 'users#new'
   get    '/login',   to: 'sessions#new'

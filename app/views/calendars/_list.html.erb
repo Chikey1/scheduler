@@ -30,10 +30,12 @@
                 <% current_user.tasks.order(due_at: :asc).each do |task| %>
                   <tr>
                     <td><%= task.title %></td>
-                    <% if task.due_at < Time.now %>
-                      <td><%= time_ago_in_words task.due_at %> ago</td>
+                    <% if task.due_at.to_date < Time.now.in_time_zone("UTC").to_date %>
+                      <td><%= time_ago_in_words task.due_at.to_date %> ago</td>
+                    <% elsif task.due_at.to_date == Time.now.in_time_zone("UTC").to_date %>
+                      <td>today</td>
                     <% else %>
-                      <td>in <%= distance_of_time_in_words(Time.now, task.due_at) %></td>
+                      <td>in <%= distance_of_time_in_words(Time.now.in_time_zone("UTC").to_date, task.due_at.to_date) %></td>
                     <% end %>
                     <td>
                       <%= link_to task_path(task), method: :delete do %>
@@ -46,24 +48,42 @@
             </tbody>
           </table>
           <br />
-          <%= link_to '+ Task', new_task_path, class:'btn' %>
+          <div class='center-align'>
+            <%= link_to '+ Task', new_task_path, class:'btn' %>
+          </div>
         </div>
         <div id="activities-tab" class="col l12">
           <table class='highlight'>
             <thead>
               <tr>
-                <th>Task</th>
-                <th>Due</th>
+                <th>Activity</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Exam</td>
-                <td>in 2 days</td>
-              </tr>
+              <% if current_user.activities.empty? %>
+                <tr>
+                  <td>No activities!</td>
+                  <td></td>
+                </tr>
+              <% else %>
+                <% current_user.activities.order(title: :asc).each do |activity| %>
+                  <tr>
+                    <td><%= activity.title %></td>
+                    <td>
+                      <%= link_to activity_path(activity), method: :delete do %>
+                        <i class="material-icons">cancel</i>
+                      <% end %>
+                    </td>
+                  </tr>
+                <% end %>
+              <% end %>
             </tbody>
           </table>
-        </div>
+          <br />
+          <div class='center-align'>
+            <%= link_to '+ Activity', new_activity_path, class:'btn' %>
+          </div>
       </div>
     </div>
   </div>

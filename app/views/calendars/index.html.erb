@@ -6,8 +6,38 @@
           Hi <%= current_user.name %>! Have a good week
           <i class="material-icons" style='position: relative; top: 3px;'>sentiment_very_satisfied</i>
         </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Monday</th>
+              <th>Tuesday</th>
+              <th>Wednesday</th>
+              <th>Thursday</th>
+              <th>Friday</th>
+              <th>Saturday</th>
+              <th>Sunday</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% number_of_rows.times.each do |n| %>
+              <tr>
+                <td><%= monday_events[n]&.title %></td>
+                <td><%= tuesday_events[n]&.title %></td>
+                <td><%= wednesday_events[n]&.title %></td>
+                <td><%= thursday_events[n]&.title %></td>
+                <td><%= friday_events[n]&.title %></td>
+                <td><%= saturday_events[n]&.title %></td>
+                <td><%= sunday_events[n]&.title %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <br />
+        <div class='center-align'>
+          <%= link_to '+ Event', new_event_path, class:'btn' %>
+        </div>
       </div>
     </div>
   </div>
-  <%= render "events" %>
+  <%= render "list" %>
 </div>

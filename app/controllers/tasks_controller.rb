@@ -7,7 +7,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.user_id = session[:user_id]
     if @task.save
-      redirect_to root_path, flash: {notice: 'Successfully added event!'}
+      redirect_to root_path, flash: {notice: 'Successfully added task!'}
     else
       render 'new'
     end

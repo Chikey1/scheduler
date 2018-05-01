@@ -1,0 +1,53 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col s12 m8 l6 offset-m2 offset-l3'>
+      <div class='card' style='margin-top: 2rem'>
+        <div class='card-content'>
+          <div class='card-title center-align'>New Event</div>
+          <%= form_for(@event) do |f| %>
+            <%= render 'shared/error_messages' %>
+            <div class='row'>
+              <div class='input-field col l12'>
+                <%= f.label :title %>
+                <%= f.text_field :title, class: 'form-control' %>
+              </div>
+              <div class='input-field col l12'>
+                <%= f.label :description %>
+                <%= f.text_field :description, class: 'form-control' %>
+              </div>
+              <div class="input-field col s12 m6 l6">
+                <%= f.select(:day) do %>
+                  <option value="" disabled selected>Choose day</option>
+                  <% days_select_array.each do |d| %>
+                    <%= content_tag(:option, d.first, value: d.last) %>
+                  <% end %>
+                <% end %>
+                <%= f.label :day %>
+              </div>
+              <div class="input-field col s12 m6 l6">
+                <%= f.select(:category) do %>
+                  <option value="" disabled selected>Choose category</option>
+                  <% categories_select_array.each do |c| %>
+                    <%= content_tag(:option, c.first, value: c.last) %>
+                  <% end %>
+                <% end %>
+                <%= f.label :category %>
+              </div>
+              <div class="input-field col s12 m6 l6">
+                <input id='event_starts_at' type="text" class="timepicker" name="event[starts_at]">
+                <label for='event_starts_at'>Starts At</label>
+              </div>
+              <div class="input-field col s12 m6 l6">
+                <input id='event_ends_at' type="text" class="timepicker" name="event[ends_at]">
+                <label for='event_ends_at'>Ends At</label>
+              </div>
+              <div class='col l12 center-align'>
+                <%= f.submit "Create event", class: "btn btn-primary" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

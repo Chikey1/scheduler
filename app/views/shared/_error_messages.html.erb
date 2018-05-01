@@ -16,3 +16,21 @@
     </ul>
   </div>
 <% end %>
+<% if @event&.errors&.any? %>
+  <div id="error_explanation">
+    <ul>
+    <% @event.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<% if @activity&.errors&.any? %>
+  <div id="error_explanation">
+    <ul>
+    <% @activity.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

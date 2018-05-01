@@ -10,7 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180423030707) do
+ActiveRecord::Schema.define(version: 20180424220542) do
+
+  create_table "activities", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "title"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_activities_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "title"
+    t.string "description"
+    t.time "starts_at"
+    t.time "ends_at"
+    t.string "day"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "category"
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
 
   create_table "tasks", force: :cascade do |t|
     t.integer "user_id"
