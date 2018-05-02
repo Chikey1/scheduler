@@ -5,6 +5,7 @@ function ready() {
   $('select').formSelect();
   $('.timepicker').timepicker();
   $('.tabs').tabs();
+  $('.dropdown-trigger').dropdown({coverTrigger: false});
 }
 
 $(document).ready(ready)

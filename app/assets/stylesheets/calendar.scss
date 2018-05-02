@@ -9,3 +9,33 @@
     margin: 0 0 30px 0;
   }
 }
+
+table td{
+  border: 1px solid transparent;
+  padding: 10px;
+
+  &.school {
+    background-color: rgba(253, 112, 108, 0.6);
+    border-color: rgb(253, 112, 108);
+  }
+
+  &.work {
+    background-color: rgba(254, 203, 101, 0.6);
+    border-color: rgb(254, 203, 101);
+  }
+
+  &.fun {
+    background-color:rgba(139, 215, 177, 0.6);
+    border-color: rgb(139, 215, 177);
+  }
+
+  &.other {
+    background-color: rgba(254, 237, 176, 0.6);
+    border-color: rgb(254, 237, 176);
+
+  }
+
+  a i {
+    color: grey;
+  }
+}

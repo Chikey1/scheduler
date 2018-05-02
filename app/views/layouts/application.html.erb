@@ -13,11 +13,11 @@
   <body>
     <nav>
       <div class="nav-wrapper container">
-        <a href="#" class="brand-logo">My Week</a>
+        <%= link_to "My Week", root_path, class:"brand-logo" %>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <% if logged_in?%>
             <li><%= link_to "Calendar", root_path %></li>
-            <li><a class='dropdown-button' href='#' data-beloworigin="true" data-activates='dropdown1'><%= current_user.name %></a></li>
+            <li><a class='dropdown-trigger' href='#' data-target='dropdown1'><%= current_user.name %></a></li>
             <ul id='dropdown1' class='dropdown-content'>
               <li><%= link_to "Profile", profile_path %></li>
               <li>
