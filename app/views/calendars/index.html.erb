@@ -36,7 +36,7 @@
                 <% tuesday = tuesday_events[n] %>
                 <td class=<%= event_class(tuesday) %> >
                   <% if tuesday %>
-                    <p><%= tuesday&.title %></p>
+                    <p><%= link_to tuesday&.title, "#modal-#{tuesday.id}" %></p>
                     <p><%= tuesday&.starts_at&.strftime('%H:%M') %> - <%= tuesday&.ends_at&.strftime('%H:%M') %></p>
                     <p class='right-align'>
                       <%= link_to event_path(tuesday), method: :delete do %>
@@ -49,7 +49,7 @@
                 <td class=<%= event_class(wednesday) %> >
                   <% if wednesday %>
                     <p><%= wednesday&.title %></p>
-                    <p><%= wednesday_&.starts_at&.strftime('%H:%M') %> - <%= wednesday&.ends_at&.strftime('%H:%M') %></p>
+                    <p><%= wednesday&.starts_at&.strftime('%H:%M') %> - <%= wednesday&.ends_at&.strftime('%H:%M') %></p>
                     <p class='right-align'>
                       <%= link_to event_path(wednesday), method: :delete do %>
                         <i class="material-icons">cancel</i>

@@ -6,6 +6,7 @@ function ready() {
   $('.timepicker').timepicker();
   $('.tabs').tabs();
   $('.dropdown-trigger').dropdown({coverTrigger: false});
+  $('.modal').modal();
 }
 
 $(document).ready(ready)

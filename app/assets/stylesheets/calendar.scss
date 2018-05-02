@@ -35,6 +35,14 @@ table td{
 
   }
 
+  p:first-child a {
+    color: black;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   a i {
     color: grey;
   }
