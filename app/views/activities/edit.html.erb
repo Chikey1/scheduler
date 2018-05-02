@@ -1,0 +1,26 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col s12 m8 l6 offset-m2 offset-l3'>
+      <div class='card' style='margin-top: 2rem'>
+        <div class='card-content'>
+          <div class='card-title center-align'>Edit Activity</div>
+          <%= form_for(@activity) do |f| %>
+            <%= render 'shared/error_messages' %>
+            <div class='input-field'>
+              <%= f.label :title %>
+              <%= f.text_field :title, class: 'form-control' %>
+            </div>
+            <div class='input-field'>
+              <%= f.label :description %>
+              <%= f.text_field :description, class: 'form-control' %>
+            </div>
+            <%= f.hidden_field :id, :value => @activity.id %>
+            <div class='center-align'>
+              <%= f.submit "Update activity", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

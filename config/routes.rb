@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'calendars#index'
   resources :users,          only: [:new, :create]
-  resources :tasks,          only: [:new, :create, :show, :destroy]
-  resources :activities,     only: [:new, :create, :show, :destroy]
+  resources :tasks,          only: [:new, :create, :show, :destroy, :edit, :update]
+  resources :activities,     only: [:new, :create, :show, :destroy, :edit, :update]
   resources :events,          only: [:new, :create, :show, :destroy]
   get   '/profile',  to: 'users#index'
   get    '/signup',  to: 'users#new'

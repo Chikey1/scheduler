@@ -1,0 +1,16 @@
+<div class='row'>
+  <div class='col l4 offset-l4 m8 offset-m2 s12'>
+    <div class='card'>
+      <div class='card-content'>
+        <div class='center-align card-title'><%= @task.title %></div>
+        <p>description:</p>
+        <p><%= @task.description %></p>
+        <p>due on: <%= @task.due_at.to_date %></p>
+      </div>
+      <div class='card-action right-align'>
+        <%= link_to "back", root_path, class:'btn-flat' %>
+        <%= link_to "edit", edit_task_path(@task), class:'btn' %>
+      </div>
+    </div>
+  </div>
+</div>

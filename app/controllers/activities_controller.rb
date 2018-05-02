@@ -13,6 +13,23 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def edit
+    @activity = @current_user.activities.find(params[:id])
+  end
+
+  def update
+    @activity = @current_user.activities.find(params[:activity][:id])
+    if @activity.update_attributes(activity_params)
+      redirect_to activity_path(@activity), flash: {notice: 'Successfully edited activity!'}
+    else
+      render 'edit'
+    end
+  end
+
+  def show
+    @activity = @current_user.activities.find(params[:id])
+  end
+
   def destroy
     @activity = @current_user.activities.find(params[:id])
     if @activity.destroy

@@ -13,6 +13,23 @@ class TasksController < ApplicationController
     end
   end
 
+  def edit
+    @task = @current_user.tasks.find(params[:id])
+  end
+
+  def update
+    @task = @current_user.tasks.find(params[:task][:id])
+    if @task.update_attributes(task_params)
+      redirect_to task_path(@task), flash: {notice: 'Successfully edited task!'}
+    else
+      render 'edit'
+    end
+  end
+
+  def show
+    @task = @current_user.tasks.find(params[:id])
+  end
+
   def destroy
     @task = @current_user.tasks.find(params[:id])
     if @task.destroy

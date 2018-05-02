@@ -29,7 +29,7 @@
               <% else %>
                 <% current_user.tasks.order(due_at: :asc).each do |task| %>
                   <tr>
-                    <td><%= task.title %></td>
+                    <td><%= link_to task.title, task_path(task) %></td>
                     <% if task.due_at.to_date < Time.now.in_time_zone("UTC").to_date %>
                       <td><%= time_ago_in_words task.due_at.to_date %> ago</td>
                     <% elsif task.due_at.to_date == Time.now.in_time_zone("UTC").to_date %>
@@ -69,7 +69,7 @@
               <% else %>
                 <% current_user.activities.order(title: :asc).each do |activity| %>
                   <tr>
-                    <td><%= activity.title %></td>
+                    <td><%= link_to activity.title, activity_path(activity) %></td>
                     <td>
                       <%= link_to activity_path(activity), method: :delete do %>
                         <i class="material-icons">cancel</i>

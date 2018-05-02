@@ -46,4 +46,12 @@ table td{
   a i {
     color: grey;
   }
+
+  a {
+    color: black;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
