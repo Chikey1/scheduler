@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users,          only: [:new, :create]
   resources :tasks,          only: [:new, :create, :show, :destroy, :edit, :update]
   resources :activities,     only: [:new, :create, :show, :destroy, :edit, :update]
-  resources :events,          only: [:new, :create, :show, :destroy]
+  resources :events,          only: [:new, :create, :show, :destroy, :edit, :update]
   get   '/profile',  to: 'users#index'
   get    '/signup',  to: 'users#new'
   get    '/login',   to: 'sessions#new'

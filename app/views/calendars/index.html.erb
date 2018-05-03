@@ -24,10 +24,10 @@
                 <% monday = monday_events[n] %>
                 <td class=<%= event_class(monday) %> >
                   <% if monday %>
-                    <p><%= monday&.title %></p>
-                    <p><%= monday&.starts_at&.strftime('%H:%M') %> - <%= monday&.ends_at&.strftime('%H:%M') %></p>
-                    <p class='right-align'>
-                      <%= link_to event_path(monday), method: :delete do %>
+                    <p><%= link_to monday&.title, event_path(monday) %></p>
+                    <p>
+                      <%= monday&.starts_at&.strftime('%H:%M') %> - <%= monday&.ends_at&.strftime('%H:%M') %>
+                      <%= link_to event_path(monday), method: :delete, class: 'right' do %>
                         <i class="material-icons">cancel</i>
                       <% end %>
                     </p>
@@ -36,10 +36,10 @@
                 <% tuesday = tuesday_events[n] %>
                 <td class=<%= event_class(tuesday) %> >
                   <% if tuesday %>
-                    <p><%= link_to tuesday&.title, "#modal-#{tuesday.id}" %></p>
-                    <p><%= tuesday&.starts_at&.strftime('%H:%M') %> - <%= tuesday&.ends_at&.strftime('%H:%M') %></p>
-                    <p class='right-align'>
-                      <%= link_to event_path(tuesday), method: :delete do %>
+                    <p><%= link_to tuesday&.title, event_path(tuesday) %></p>
+                    <p>
+                      <%= tuesday&.starts_at&.strftime('%H:%M') %> - <%= tuesday&.ends_at&.strftime('%H:%M') %>
+                      <%= link_to event_path(tuesday), method: :delete, class: 'right' do %>
                         <i class="material-icons">cancel</i>
                       <% end %>
                     </p>
@@ -48,10 +48,10 @@
                 <% wednesday = wednesday_events[n] %>
                 <td class=<%= event_class(wednesday) %> >
                   <% if wednesday %>
-                    <p><%= wednesday&.title %></p>
-                    <p><%= wednesday&.starts_at&.strftime('%H:%M') %> - <%= wednesday&.ends_at&.strftime('%H:%M') %></p>
-                    <p class='right-align'>
-                      <%= link_to event_path(wednesday), method: :delete do %>
+                    <p><%= link_to wednesday&.title, event_path(wednesday) %></p>
+                    <p>
+                      <%= wednesday&.starts_at&.strftime('%H:%M') %> - <%= wednesday&.ends_at&.strftime('%H:%M') %>
+                      <%= link_to event_path(wednesday), method: :delete, class: 'right' do %>
                         <i class="material-icons">cancel</i>
                       <% end %>
                     </p>
@@ -60,10 +60,10 @@
                 <% thursday = thursday_events[n] %>
                 <td class=<%= event_class(thursday) %> >
                   <% if thursday %>
-                    <p><%= thursday&.title %></p>
-                    <p><%= thursday&.starts_at&.strftime('%H:%M') %> - <%= thursday&.ends_at&.strftime('%H:%M') %></p>
-                    <p class='right-align'>
-                      <%= link_to event_path(thursday), method: :delete do %>
+                    <p><%= link_to thursday&.title, event_path(thursday) %></p>
+                    <p>
+                      <%= thursday&.starts_at&.strftime('%H:%M') %> - <%= thursday&.ends_at&.strftime('%H:%M') %>
+                      <%= link_to event_path(thursday), method: :delete, class: 'right' do %>
                         <i class="material-icons">cancel</i>
                       <% end %>
                     </p>
@@ -72,10 +72,10 @@
                 <% friday = friday_events[n] %>
                 <td class=<%= event_class(friday) %> >
                   <% if friday %>
-                    <p><%= friday&.title %></p>
-                    <p><%= friday&.starts_at&.strftime('%H:%M') %> - <%= friday&.ends_at&.strftime('%H:%M') %></p>
-                    <p class='right-align'>
-                      <%= link_to event_path(friday), method: :delete do %>
+                    <p><%= link_to friday&.title, event_path(friday) %></p>
+                    <p>
+                      <%= friday&.starts_at&.strftime('%H:%M') %> - <%= friday&.ends_at&.strftime('%H:%M') %>
+                      <%= link_to event_path(friday), method: :delete, class: 'right' do %>
                         <i class="material-icons">cancel</i>
                       <% end %>
                     </p>
@@ -84,10 +84,10 @@
                 <% saturday = saturday_events[n] %>
                 <td class=<%= event_class(saturday) %> >
                   <% if saturday %>
-                    <p><%= saturday&.title %></p>
-                    <p><%= saturday&.starts_at&.strftime('%H:%M') %> - <%= saturday&.ends_at&.strftime('%H:%M') %></p>
-                    <p class='right-align'>
-                      <%= link_to event_path(saturday), method: :delete do %>
+                    <p><%= link_to saturday&.title, event_path(saturday) %></p>
+                    <p>
+                      <%= saturday&.starts_at&.strftime('%H:%M') %> - <%= saturday&.ends_at&.strftime('%H:%M') %>
+                      <%= link_to event_path(saturday), method: :delete, class: 'right' do %>
                         <i class="material-icons">cancel</i>
                       <% end %>
                     </p>
@@ -96,10 +96,10 @@
                 <% sunday = sunday_events[n] %>
                 <td class=<%= event_class(sunday) %> >
                   <% if sunday %>
-                    <p><%= sunday&.title %></p>
-                    <p><%= sunday&.starts_at&.strftime('%H:%M') %> - <%= sunday&.ends_at&.strftime('%H:%M') %></p>
-                    <p class='right-align'>
-                      <%= link_to event_path(sunday), method: :delete do %>
+                    <p><%= link_to sunday&.title, event_path(sunday) %></p>
+                    <p>
+                      <%= sunday&.starts_at&.strftime('%H:%M') %> - <%= sunday&.ends_at&.strftime('%H:%M') %>
+                      <%= link_to event_path(sunday), method: :delete, class: 'right' do %>
                         <i class="material-icons">cancel</i>
                       <% end %>
                     </p>
